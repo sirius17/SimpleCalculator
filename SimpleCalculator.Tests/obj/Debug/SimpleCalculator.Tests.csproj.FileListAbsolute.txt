@@ -1,0 +1,7 @@
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Tests\bin\Debug\SimpleCalculator.Tests.dll
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Tests\bin\Debug\SimpleCalculator.Tests.pdb
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Tests\bin\Debug\SimpleCalculator.Core.dll
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Tests\bin\Debug\SimpleCalculator.Core.pdb
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Tests\obj\Debug\SimpleCalculator.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Tests\obj\Debug\SimpleCalculator.Tests.dll
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Tests\obj\Debug\SimpleCalculator.Tests.pdb
