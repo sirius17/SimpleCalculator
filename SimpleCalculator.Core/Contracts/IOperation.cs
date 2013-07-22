@@ -7,6 +7,8 @@ namespace SimpleCalculator.Core.Contracts
 {
     public interface IOperation
     {
+        string Name { get;  }
+
         void Execute();
     }
 }

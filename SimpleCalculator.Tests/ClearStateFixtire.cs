@@ -56,5 +56,27 @@ namespace SimpleCalculator.Tests
             state.Notify(PointCommand.Instance);
             Assert.IsTrue(calc.State is AccumulatorState);
         }
+
+        [TestMethod]
+        public void DigitCommandShouldSetAccumulatorTest()
+        {
+            var calc = CalculatorFactory.BuildNew();
+            var state = new ClearState(calc);
+            Assert.IsTrue(string.IsNullOrWhiteSpace(calc.CPU.Accumulator) == true);
+            state.Notify(new DigitCommand(1));
+            Assert.IsTrue(calc.State is AccumulatorState);
+            Assert.IsTrue(calc.CPU.Accumulator == "1");
+        }
+
+        [TestMethod]
+        public void PointCommandShouldSetAccumulatorTest()
+        {
+            var calc = CalculatorFactory.BuildNew();
+            var state = new ClearState(calc);
+            Assert.IsTrue(string.IsNullOrWhiteSpace(calc.CPU.Accumulator) == true);
+            state.Notify(PointCommand.Instance);
+            Assert.IsTrue(calc.State is AccumulatorState);
+            Assert.IsTrue(calc.CPU.Accumulator == "0.");
+        }
     }
 }

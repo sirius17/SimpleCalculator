@@ -1,4 +1,5 @@
 ﻿using SimpleCalculator.Core.Contracts;
+using SimpleCalculator.Core.Operations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,38 @@ namespace SimpleCalculator.Core
     {
         public SimpleCpu()
         {
-            this.OperandStack = new Stack<string>();
+            this.OperandStack = new Stack<decimal>();
             this.OperatorStack = new Stack<string>();
+            InitializeSupportedOperations();
         }
 
-        public IOperation Find(string opName)
+        private void InitializeSupportedOperations()
         {
-            throw new NotImplementedException();
+            this.SupportedOperations = new Dictionary<string, IOperation>();
+            var operation = new AddOperation(this);
+            this.SupportedOperations[operation.Name] = operation;
         }
 
-        public Stack<string> OperandStack { get; private set; }
+        private Dictionary<string, IOperation> SupportedOperations = null;
+            
+
+        public IOperation FindOperation(string opName)
+        {
+            return this.SupportedOperations[opName];
+        }
+
+        public Stack<decimal> OperandStack { get; private set; }
 
         public Stack<string> OperatorStack { get; private set; }
 
         public string Accumulator { get; set; }
+
+
+        public void Reset()
+        {
+            this.Accumulator = null;
+            this.OperandStack.Clear();
+            this.OperatorStack.Clear();
+        }
     }
 }

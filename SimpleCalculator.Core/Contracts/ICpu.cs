@@ -9,10 +9,12 @@ namespace SimpleCalculator.Core.Contracts
     {
         string Accumulator { get; set; }
 
-        IOperation Find(string opName);
+        IOperation FindOperation(string opName);
 
-        Stack<string> OperandStack { get; }
+        Stack<decimal> OperandStack { get; }
 
         Stack<string> OperatorStack { get; }
+
+        void Reset();
     }
 }

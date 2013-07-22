@@ -1,0 +1,10 @@
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\obj\Debug\SimpleCalculator.Gui.csprojResolveAssemblyReference.cache
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\obj\Debug\SimpleCalculator.Gui.Properties.Resources.resources
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\obj\Debug\SimpleCalculator.Gui.csproj.GenerateResource.Cache
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\bin\Debug\SimpleCalculator.Gui.exe
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\bin\Debug\SimpleCalculator.Gui.pdb
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\obj\Debug\SimpleCalculator.Gui.exe
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\obj\Debug\SimpleCalculator.Gui.pdb
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\obj\Debug\SimpleCalculator.Gui.CalculatorUI.resources
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\bin\Debug\SimpleCalculator.Core.dll
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Gui\bin\Debug\SimpleCalculator.Core.pdb

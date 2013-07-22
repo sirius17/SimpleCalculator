@@ -12,9 +12,10 @@ namespace SimpleCalculator.Core.States
         public ClearState(Calculator calc)
             : base(calc)
         {
+            this.Calculator.CPU.Reset();
         }
 
-        public override void Notify(ICommand command)
+        protected override void HandleCommand(ICommand command)
         {
             // Specification
             // The only commands that are supported are point and digit.
