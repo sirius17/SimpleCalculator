@@ -46,6 +46,7 @@
     <Compile Include="Commands\IOperatorCommand.cs" />
     <Compile Include="Commands\PointCommand.cs" />
     <Compile Include="Operations\AddOperation.cs" />
+    <Compile Include="Operations\NegateOperation.cs" />
     <Compile Include="SimpleCpu.cs" />
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\ICommandObserver.cs" />

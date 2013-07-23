@@ -17,39 +17,63 @@ namespace SimpleCalculator.Core.Operations
 
         public void Execute()
         {
-            // The following scenarios need to be supported.
-            // 0. If accumulator is empty ??  and operand stack has 2 values and operator stack is empty.
-            // then
-            //  a. Pop the operands
-            //  b. Evaluate the operator
-            //  c. Push results into operand stack
+            /*
+             Binary operation would have 4 potential scenarios to handle. 
+            1. Only one operand has been provided.
+            In this case, the operation would simply queue itself on the stack.
+            2. Both operands are provided and there is an existing operator queued.
+            In this case, the operation would pop existing operator and evaulate it.
+            This would reduce the setup to case 1.
+            3. Both operands are provided, and no existing operator exists.
+            Simply pop both operands, run operation and push result on operand stack. 
+             */
+            if (string.IsNullOrWhiteSpace(this.CPU.Accumulator) == false)
+                MoveOperandToStack();
 
-            // 1. If accumulator has value and operand stack is empty.
-            // then simply push accumulator value to operand stack and
-            // push operator to operator stack. Clear accumulator
-            // 2. If accumulator has value and operand stack is not empty.
-            // then 
-            //   a. pop binary operator from operator stack and 
-            //   b. evaluate using accumulator value and operand from operand stack.
-            //   c. Push result onto operand stack. 
-            //   d. Push current operator onto operator stack. 
-            //   e. Clear the accumulator.
+            if (this.CPU.OperandStack.Count == 1  )
+                QueueOperation();
+            else if (this.CPU.OperatorStack.Count == 0 && this.CPU.OperandStack.Count == 2)
+                EvaluateOperation();
+            else if (this.CPU.OperatorStack.Count == 1 && this.CPU.OperandStack.Count == 2)
+            {
+                ReduceToSingleOperand();
+                QueueOperation();
+            }
+            else throw new Exception("Invalid operator / operand stack state.");
+        }
 
-            if (string.IsNullOrWhiteSpace(this.CPU.Accumulator) == false &&
-                this.CPU.OperandStack.Count == 0)
-            {
-                var operand = decimal.Parse(this.CPU.Accumulator);
-                this.CPU.Accumulator = null;
-                this.CPU.OperandStack.Push(operand);
-                this.CPU.OperatorStack.Push(this.Name);
-            }
-            else if (string.IsNullOrWhiteSpace(this.CPU.Accumulator) == false &&
-                this.CPU.OperandStack.Count != 0)
-            {
-                var operandA = decimal.Parse(this.CPU.Accumulator);
-                var operandB = this.CPU.OperandStack.Pop();
-                var opName = this.CPU.OperatorStack.Pop();
-            }
+        private void EvaluateOperation()
+        {
+            var opB = this.CPU.OperandStack.Pop();
+            var opA = this.CPU.OperandStack.Pop();
+            var result = this.Evaluate(opA, opB);
+            this.CPU.OperandStack.Push(result);
+        }
+
+        private void ReduceToSingleOperand()
+        {
+            var opName = this.CPU.OperatorStack.Pop();
+            var pendingOp = this.CPU.FindOperation(opName);
+            pendingOp.Execute();
+        }
+
+        private void QueueOperation()
+        {
+            // Queue the current operator
+            // Simply push current op on the operator stack.
+            this.CPU.OperatorStack.Push(this.Name);
+        }
+
+        private void MoveOperandToStack()
+        {
+            var operand = decimal.Parse(this.CPU.Accumulator);
+            this.CPU.Accumulator = null;
+            this.CPU.OperandStack.Push(operand);
+        }
+
+        private decimal Evaluate(decimal operandA, decimal operandB)
+        {
+            return operandA + operandB;
         }
 
         public string Name

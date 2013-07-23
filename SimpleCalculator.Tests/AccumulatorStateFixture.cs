@@ -92,48 +92,11 @@ namespace SimpleCalculator.Tests
 
 
         [TestMethod]
-        public void OperatorCommandWithEmptyStackTest()
-        {
-            Calculator calc = CalculatorFactory.BuildNew();
-            calc.Notify(new DigitCommand(1));
-            Assert.IsTrue(calc.State is AccumulatorState);
-            calc.Notify(new DigitCommand(2));
-            calc.Notify(new DigitCommand(3));
-            // As of now accumulator state is 123
-
-            calc.Notify(new OperatorCommand("+"));
-            Assert.IsTrue(calc.CPU.OperandStack.Peek() == 123m);
-            Assert.IsTrue(calc.CPU.OperatorStack.Peek() == "+");
-            Assert.IsTrue(string.IsNullOrWhiteSpace(calc.CPU.Accumulator) == true);
-        }
-
-        [TestMethod]
-        public void OperatorCommandWithNonEmptyStackTest()
-        {
-            Calculator calc = CalculatorFactory.BuildNew();
-            calc.Notify(new DigitCommand(1));
-            Assert.IsTrue(calc.State is AccumulatorState);
-            calc.Notify(new DigitCommand(0));
-            calc.Notify(new DigitCommand(0));
-            // As of now accumulator state is 123
-            calc.Notify(new OperatorCommand("+"));
-            calc.Notify(new DigitCommand(2));
-            calc.Notify(new DigitCommand(5));
-            calc.Notify(new OperatorCommand("-"));
-            Assert.IsTrue(calc.CPU.OperandStack.Peek() == 125m);
-            Assert.IsTrue(calc.CPU.OperatorStack.Peek() == "-");
-            Assert.IsTrue(string.IsNullOrWhiteSpace(calc.CPU.Accumulator) == true);
-
-        }
-
-
-        [TestMethod]
         public void BinaryOperatorCommandShouldNotChangeStateTest()
         {
             Calculator calc = CalculatorFactory.BuildNew();
             calc.Notify(new DigitCommand(1));
             Assert.IsTrue(calc.State is AccumulatorState);
-
             calc.Notify(new OperatorCommand("+"));
             Assert.IsTrue(calc.State is AccumulatorState);
         }

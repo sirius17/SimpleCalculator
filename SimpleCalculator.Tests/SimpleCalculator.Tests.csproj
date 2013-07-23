@@ -54,9 +54,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AccumulatorStateFixture.cs" />
+    <Compile Include="BinaryOperatorFixture.cs" />
     <Compile Include="ClearStateFixtire.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestInput.cs" />
+    <Compile Include="UnaryOperatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleCalculator.Core\SimpleCalculator.Core.csproj">

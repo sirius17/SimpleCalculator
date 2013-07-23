@@ -2,3 +2,4 @@ C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCal
 C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Core\bin\Debug\SimpleCalculator.Core.pdb
 C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Core\obj\Debug\SimpleCalculator.Core.dll
 C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Core\obj\Debug\SimpleCalculator.Core.pdb
+C:\Users\Nikhil\Documents\Visual Studio 2012\Projects\SimpleCalculator\SimpleCalculator.Core\obj\Debug\SimpleCalculator.Core.csprojResolveAssemblyReference.cache

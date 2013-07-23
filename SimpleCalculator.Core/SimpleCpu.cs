@@ -19,9 +19,16 @@ namespace SimpleCalculator.Core
         private void InitializeSupportedOperations()
         {
             this.SupportedOperations = new Dictionary<string, IOperation>();
-            var operation = new AddOperation(this);
-            this.SupportedOperations[operation.Name] = operation;
+            RegisterOperation(this.SupportedOperations, new AddOperation(this));
+            RegisterOperation(this.SupportedOperations, new NegateOperation(this));
         }
+
+        private void RegisterOperation(Dictionary<string, IOperation> map, IOperation op)
+        {
+            map[op.Name] = op;
+        }
+
+
 
         private Dictionary<string, IOperation> SupportedOperations = null;
             

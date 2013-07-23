@@ -29,6 +29,14 @@ namespace SimpleCalculator.Core.States
 
         private void HandleOperatorCommand(OperatorCommand operatorCommand)
         {
+            // Clear accumulator state.
+            if (string.IsNullOrWhiteSpace(this.Calculator.CPU.Accumulator) == false)
+            {
+                var operand = decimal.Parse(this.Calculator.CPU.Accumulator);
+                this.Calculator.CPU.OperandStack.Push(operand);
+                this.Calculator.CPU.Accumulator = null;
+            }
+            
             // Create the operation and execute.
             var op = this.Calculator.CPU.FindOperation(operatorCommand.OperatorName);
             op.Execute();

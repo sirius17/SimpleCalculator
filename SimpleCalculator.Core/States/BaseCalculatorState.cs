@@ -51,11 +51,14 @@ namespace SimpleCalculator.Core.States
             // Incase the calculator state is present, print it
             if (this.Calculator.State is ErrorState)
                 this.Calculator.Output.Print("-E-");
-            var value = GetDisplayValue();
-            if (string.IsNullOrWhiteSpace(value) == true)
-                this.Calculator.Output.Print("0");
             else
-                this.Calculator.Output.Print(value);
+            {
+                var value = GetDisplayValue();
+                if (string.IsNullOrWhiteSpace(value) == true)
+                    this.Calculator.Output.Print("0");
+                else
+                    this.Calculator.Output.Print(value);
+            }
         }
 
         private string GetDisplayValue()
