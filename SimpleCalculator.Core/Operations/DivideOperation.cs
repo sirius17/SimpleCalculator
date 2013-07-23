@@ -6,20 +6,20 @@ using System.Text;
 
 namespace SimpleCalculator.Core.Operations
 {
-    public class AddOperation : BinaryOperation
+    public class DivideOperation : BinaryOperation
     {
-        public AddOperation(ICpu cpu)
+        public DivideOperation(ICpu cpu)
             : base(cpu)
         { }
 
         protected override decimal Evaluate(decimal operandA, decimal operandB)
         {
-            return operandA + operandB;
+            return operandA / operandB;
         }
 
         public override string Name
         {
-            get { return "+"; }
+            get { return "/"; }
         }
     }
 }

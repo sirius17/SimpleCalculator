@@ -20,6 +20,11 @@ namespace SimpleCalculator.Core
         {
             this.SupportedOperations = new Dictionary<string, IOperation>();
             RegisterOperation(this.SupportedOperations, new AddOperation(this));
+            RegisterOperation(this.SupportedOperations, new SubtractOperation(this));
+            RegisterOperation(this.SupportedOperations, new DivideOperation(this));
+            RegisterOperation(this.SupportedOperations, new MultiplyOperation(this));
+
+
             RegisterOperation(this.SupportedOperations, new NegateOperation(this));
         }
 

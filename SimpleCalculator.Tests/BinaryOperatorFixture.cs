@@ -24,6 +24,20 @@ namespace SimpleCalculator.Tests
         }
 
         [TestMethod]
+        public void SingleOperandWithExistingOperatorShouldReplaceOperationTest()
+        {
+            var cpu = new SimpleCpu();
+            cpu.OperandStack.Push(5);
+            cpu.OperatorStack.Push("x");
+            var op = cpu.FindOperation("+");
+            op.Execute();
+            Assert.IsTrue(cpu.OperandStack.Count == 1);
+            Assert.IsTrue(cpu.OperandStack.Peek() == 5);
+            Assert.IsTrue(cpu.OperatorStack.Count == 1);
+            Assert.IsTrue(cpu.OperatorStack.Peek() == "+");
+        }
+
+        [TestMethod]
         public void TwoOperandWithoutExistingOperatorShouldEvaulateTest()
         {
             var cpu = new SimpleCpu();
