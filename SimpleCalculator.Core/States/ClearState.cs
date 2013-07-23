@@ -30,7 +30,8 @@ namespace SimpleCalculator.Core.States
         {
             // Spec
             // Set accumulator to 0. and change state to Accumulator
-            this.Calculator.CPU.Accumulator = "0.";
+            this.Calculator.CPU.Accumulator.Clear();
+            this.Calculator.CPU.Accumulator.Append("0.");
             this.Calculator.State = new AccumulatorState(this.Calculator);
         }
 
@@ -38,7 +39,7 @@ namespace SimpleCalculator.Core.States
         {
             // Spec
             // Set accumulator to digit and change state to Accumulator
-            this.Calculator.CPU.Accumulator = digitCommand.Digit.ToString();
+            this.Calculator.CPU.Accumulator.SetValue(digitCommand.Digit);
             this.Calculator.State = new AccumulatorState(this.Calculator);
         }
     }

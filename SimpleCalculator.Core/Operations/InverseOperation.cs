@@ -6,21 +6,21 @@ using System.Text;
 
 namespace SimpleCalculator.Core.Operations
 {
-    public class NegateOperation : UnaryOperation
+    public class InverseOperation : UnaryOperation
     {
-        public NegateOperation(ICpu cpu)
+        public InverseOperation(ICpu cpu)
             : base(cpu)
         {
         }
 
         public override string Name
         {
-            get { return "negate"; }
+            get { return "inverse"; }
         }
 
         protected override decimal Evaluate(decimal operand)
         {
-            return -operand;
+            return 1/operand;
         }
     }
 }

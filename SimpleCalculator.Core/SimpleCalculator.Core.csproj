@@ -39,18 +39,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accumulator.cs" />
     <Compile Include="Calculator.cs" />
     <Compile Include="Commands\ClearCommand.cs" />
     <Compile Include="Commands\DigitCommand.cs" />
     <Compile Include="Commands\EqualsCommand.cs" />
     <Compile Include="Commands\IOperatorCommand.cs" />
     <Compile Include="Commands\PointCommand.cs" />
+    <Compile Include="IAccumulator.cs" />
     <Compile Include="Operations\AddOperation.cs" />
     <Compile Include="Operations\BinaryOperation.cs" />
+    <Compile Include="Operations\InverseOperation.cs" />
+    <Compile Include="Operations\SquareRootOperation.cs" />
     <Compile Include="Operations\MultiplyOperation.cs" />
     <Compile Include="Operations\SubtractOperation.cs" />
     <Compile Include="Operations\DivideOperation.cs" />
     <Compile Include="Operations\NegateOperation.cs" />
+    <Compile Include="Operations\UnaryOperation.cs" />
     <Compile Include="SimpleCpu.cs" />
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\ICommandObserver.cs" />
@@ -63,6 +68,7 @@
     <Compile Include="States\AccumulatorState.cs" />
     <Compile Include="States\BaseCalculatorState.cs" />
     <Compile Include="States\ClearState.cs" />
+    <Compile Include="States\ResultState.cs" />
     <Compile Include="States\ErrorState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

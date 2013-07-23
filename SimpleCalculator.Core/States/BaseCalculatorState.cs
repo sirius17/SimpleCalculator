@@ -63,7 +63,7 @@ namespace SimpleCalculator.Core.States
 
         private string GetDisplayValue()
         {
-            var value = this.Calculator.CPU.Accumulator;
+            var value = this.Calculator.CPU.Accumulator.ToString();
             if (string.IsNullOrWhiteSpace(value) == false)
                 return value;
             if (this.Calculator.CPU.OperandStack.Count == 0)

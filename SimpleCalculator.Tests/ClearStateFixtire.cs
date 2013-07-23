@@ -62,10 +62,10 @@ namespace SimpleCalculator.Tests
         {
             var calc = CalculatorFactory.BuildNew();
             var state = new ClearState(calc);
-            Assert.IsTrue(string.IsNullOrWhiteSpace(calc.CPU.Accumulator) == true);
+            Assert.IsTrue(calc.CPU.Accumulator.IsEmpty);
             state.Notify(new DigitCommand(1));
             Assert.IsTrue(calc.State is AccumulatorState);
-            Assert.IsTrue(calc.CPU.Accumulator == "1");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "1");
         }
 
         [TestMethod]
@@ -73,10 +73,10 @@ namespace SimpleCalculator.Tests
         {
             var calc = CalculatorFactory.BuildNew();
             var state = new ClearState(calc);
-            Assert.IsTrue(string.IsNullOrWhiteSpace(calc.CPU.Accumulator) == true);
+            Assert.IsTrue(calc.CPU.Accumulator.IsEmpty);
             state.Notify(PointCommand.Instance);
             Assert.IsTrue(calc.State is AccumulatorState);
-            Assert.IsTrue(calc.CPU.Accumulator == "0.");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "0.");
         }
     }
 }

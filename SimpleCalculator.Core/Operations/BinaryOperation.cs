@@ -31,7 +31,7 @@ namespace SimpleCalculator.Core.Operations
             4. If a single operand is provided, with existing operator, 
              * then current operator should replace the existing operator.
              */
-            if (string.IsNullOrWhiteSpace(this.CPU.Accumulator) == false)
+            if( this.CPU.Accumulator.IsEmpty == false )
                 MoveOperandToStack();
             bool bothOperandsAvailable = this.CPU.OperandStack.Count == 2;
             bool pendingOperatorPresent = this.CPU.OperatorStack.Count != 0;
@@ -81,9 +81,12 @@ namespace SimpleCalculator.Core.Operations
 
         private void MoveOperandToStack()
         {
-            var operand = decimal.Parse(this.CPU.Accumulator);
-            this.CPU.Accumulator = null;
+            //TODO: this is a duplicate from Accumulator State. Need to refactor.
+            decimal operand;
+            this.CPU.Accumulator.TryGetValue(out operand); ;
+            this.CPU.Accumulator.Clear();
             this.CPU.OperandStack.Push(operand);
+            this.CPU.Registers[0] = operand;
         }
 
         public abstract string Name { get; }

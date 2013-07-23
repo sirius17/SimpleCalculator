@@ -7,13 +7,15 @@ namespace SimpleCalculator.Core.Contracts
 {
     public interface ICpu
     {
-        string Accumulator { get; set; }
+        IAccumulator Accumulator { get;  }
 
         IOperation FindOperation(string opName);
 
         Stack<decimal> OperandStack { get; }
 
         Stack<string> OperatorStack { get; }
+
+        decimal[] Registers { get;  }
 
         void Reset();
     }

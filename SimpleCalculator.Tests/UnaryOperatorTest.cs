@@ -15,11 +15,11 @@ namespace SimpleCalculator.Tests
         public void IfAccumulatorNonEmptyThenOperationShouldApplyToAccumulatorTest()
         {
             var cpu = new SimpleCpu();
-            cpu.Accumulator = "15";
+            cpu.Accumulator.SetValue(15);
             cpu.OperandStack.Push(10);
             var operation = cpu.FindOperation("negate");
             operation.Execute();
-            Assert.IsTrue(cpu.Accumulator == "-15");
+            Assert.IsTrue(cpu.Accumulator.ToString() == "-15");
             Assert.IsTrue(cpu.OperandStack.Count == 1);
             Assert.IsTrue(cpu.OperandStack.Peek() == 10);
         }
@@ -34,5 +34,18 @@ namespace SimpleCalculator.Tests
             Assert.IsTrue(cpu.OperandStack.Count == 1);
             Assert.IsTrue(cpu.OperandStack.Peek() == -10);
         }
+
+        [TestMethod]
+        public void IfStackEmptyThenOperationShouldApplyToAccumulatorTest()
+        {
+            var cpu = new SimpleCpu();
+            cpu.Accumulator.SetValue(10);
+            var operation = cpu.FindOperation("negate");
+            operation.Execute();
+            Assert.IsTrue(cpu.OperandStack.Count == 0);
+            Assert.IsTrue(cpu.Accumulator.ToString() == "-10");
+        }
+
+        //TODO: Handle the scenario when both accumulator and stack are empty.
     }
 }

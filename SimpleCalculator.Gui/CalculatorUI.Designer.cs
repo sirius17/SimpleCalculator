@@ -266,7 +266,7 @@
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(50, 50);
             this.button18.TabIndex = 17;
-            this.button18.Tag = "inv";
+            this.button18.Tag = "inverse";
             this.button18.Text = "1/x";
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.OnOperatorClicked);

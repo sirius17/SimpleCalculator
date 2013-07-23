@@ -29,9 +29,9 @@ namespace SimpleCalculator.Tests
             Calculator calc = CalculatorFactory.BuildNew();
             calc.Notify(new DigitCommand(0));
             Assert.IsTrue(calc.State is AccumulatorState);
-            Assert.IsTrue(calc.CPU.Accumulator == "0");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "0");
             calc.Notify(new DigitCommand(0));
-            Assert.IsTrue(calc.CPU.Accumulator == "0");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "0");
         }
 
         [TestMethod]
@@ -40,9 +40,9 @@ namespace SimpleCalculator.Tests
             Calculator calc = CalculatorFactory.BuildNew();
             calc.Notify(new DigitCommand(0));
             Assert.IsTrue(calc.State is AccumulatorState);
-            Assert.IsTrue(calc.CPU.Accumulator == "0");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "0");
             calc.Notify(new DigitCommand(1));
-            Assert.IsTrue(calc.CPU.Accumulator == "1");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "1");
         }
 
         [TestMethod]
@@ -51,9 +51,9 @@ namespace SimpleCalculator.Tests
             Calculator calc = CalculatorFactory.BuildNew();
             calc.Notify(new DigitCommand(1));
             Assert.IsTrue(calc.State is AccumulatorState);
-            Assert.IsTrue(calc.CPU.Accumulator == "1");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "1");
             calc.Notify(new DigitCommand(2));
-            Assert.IsTrue(calc.CPU.Accumulator == "12");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "12");
         }
 
 
@@ -74,9 +74,9 @@ namespace SimpleCalculator.Tests
             Calculator calc = CalculatorFactory.BuildNew();
             calc.Notify(new DigitCommand(1));
             Assert.IsTrue(calc.State is AccumulatorState);
-            Assert.IsTrue(calc.CPU.Accumulator == "1");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "1");
             calc.Notify(PointCommand.Instance);
-            Assert.IsTrue(calc.CPU.Accumulator == "1.");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "1.");
         }
 
         [TestMethod]
@@ -85,9 +85,9 @@ namespace SimpleCalculator.Tests
             Calculator calc = CalculatorFactory.BuildNew();
             calc.Notify(PointCommand.Instance);
             Assert.IsTrue(calc.State is AccumulatorState);
-            Assert.IsTrue(calc.CPU.Accumulator == "0.");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "0.");
             calc.Notify(PointCommand.Instance);
-            Assert.IsTrue(calc.CPU.Accumulator == "0.");
+            Assert.IsTrue(calc.CPU.Accumulator.ToString() == "0.");
         }
 
 
@@ -101,5 +101,15 @@ namespace SimpleCalculator.Tests
             Assert.IsTrue(calc.State is AccumulatorState);
         }
 
+        [TestMethod]
+        public void EqualsCommandShouldChangeStateToResultStateTest()
+        {
+            Calculator calc = CalculatorFactory.BuildNew();
+            calc.Notify(new DigitCommand(1));
+            Assert.IsTrue(calc.State is AccumulatorState);
+
+            calc.Notify(new EqualsCommand());
+            Assert.IsTrue(calc.State is ResultState);
+        }
     }
 }

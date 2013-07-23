@@ -6,21 +6,25 @@ using System.Text;
 
 namespace SimpleCalculator.Core.Operations
 {
-    public class NegateOperation : UnaryOperation
+    public class SquareRootOperation : UnaryOperation
     {
-        public NegateOperation(ICpu cpu)
+        public SquareRootOperation(ICpu cpu)
             : base(cpu)
         {
         }
 
         public override string Name
         {
-            get { return "negate"; }
+            get { return "sqrt"; }
         }
 
         protected override decimal Evaluate(decimal operand)
         {
-            return -operand;
+            return Convert.ToDecimal(
+                Math.Sqrt(
+                    Convert.ToDouble(operand)
+                    )
+                );
         }
     }
 }
